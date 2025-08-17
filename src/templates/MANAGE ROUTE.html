@@ -1,0 +1,179 @@
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>MANAGE ROUTE</title>
+</head>
+
+<body>
+<p>MANAGE ROUTE</p>
+<form id="form1" name="form1" method="post" action="/ADDROUTE">
+  <table width="268" border="1">
+    <tr>
+      <th scope="row">START-STOP</th>
+      <td><label>END-STOP</label></td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    {% for i in val %}
+    <tr>
+      <th scope="row">{{i[1]}}</th>
+      <td>{{i[2]}}</td>
+      <td><a href="/EDITROUTE?lid={{i[0]}}">EDIT</a></td>
+      <td><a href="/DELROUTE?lid={{i[0]}}">DELETE</a></td>
+    </tr>
+    {% endfor %}
+    <tr>
+      <th colspan="4" scope="row"><label>
+        <input type="submit" name="Submit" value="ADD NEW" />
+      </label></th>
+    </tr>
+  </table>
+
+</form>
+<p>&nbsp;</p>
+<br>
+<table><tr><td><a href="{{ url_for('admin_home') }}">GO BACK</a>
+</td></tr></table>
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Manage Route</title>
+<style>
+  /* Background and body styling */
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #89CFF0, #e0f7fa);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+  }
+
+  /* Centered container with card style */
+  .container {
+    width: 90%;
+    max-width: 600px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+
+  /* Title styling */
+  h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+
+  /* Table styling */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  table, th, td {
+    border: 1px solid #ddd;
+  }
+  th {
+    background-color: #00796b;
+    color: #ffffff;
+    font-weight: bold;
+  }
+  td {
+    background-color: #f9f9f9;
+  }
+  th, td {
+    padding: 12px;
+    text-align: center;
+  }
+  tr:nth-child(even) td {
+    background-color: #e0f2f1;
+  }
+
+  /* Button styling */
+  input[type="submit"], a.button {
+    display: inline-block;
+    padding: 8px 16px;
+    color: white;
+    background-color: #43a047; /* Green for 'ADD NEW' */
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  }
+  input[type="submit"]:hover, a.button:hover {
+    background-color: #388e3c;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.24);
+  }
+  .button.edit {
+    background-color: #1e88e5; /* Blue for 'EDIT' */
+  }
+  .button.edit:hover {
+    background-color: #1565c0;
+  }
+  .button.delete {
+    background-color: #e53935; /* Red for 'DELETE' */
+  }
+  .button.delete:hover {
+    background-color: #c62828;
+  }
+
+  /* Go back link styling */
+  .back-link {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .back-link a.button {
+    background-color: #00695c;
+  }
+  .back-link a.button:hover {
+    background-color: #004d40;
+  }
+</style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Manage Route</h1>
+    <form id="form1" name="form1" method="post" action="/ADDROUTE">
+      <table>
+        <tr>
+          <th>START-STOP</th>
+          <th>END-STOP</th>
+          <th colspan="2">ACTION</th>
+        </tr>
+        {% for i in val %}
+        <tr>
+          <td>{{ i[1] }}</td>
+          <td>{{ i[2] }}</td>
+          <td><a href="/EDITROUTE?lid={{ i[0] }}" class="button edit">EDIT</a></td>
+          <td><a href="/DELROUTE?lid={{ i[0] }}" class="button delete">DELETE</a></td>
+        </tr>
+        {% endfor %}
+        <tr>
+          <td colspan="4">
+            <input type="submit" name="Submit" value="ADD NEW" />
+          </td>
+        </tr>
+      </table>
+    </form>
+    <div class="back-link">
+      <a href="{{ url_for('admin_home') }}" class="button">GO BACK</a>
+    </div>
+  </div>
+</body>
+</html>

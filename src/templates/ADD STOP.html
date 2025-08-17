@@ -1,0 +1,132 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Add Stop</title>
+<style>
+  /* Background and body styling */
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #89CFF0, #e0f7fa);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+  }
+
+  /* Centered container with card style */
+  .container {
+    width: 90%;
+    max-width: 500px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+
+  /* Title styling */
+  h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+
+  /* Form styling */
+  form {
+    margin-bottom: 20px;
+  }
+
+  /* Table styling */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  table, th, td {
+    border: 1px solid #ddd;
+  }
+  th {
+    background-color: #00796b;
+    color: #ffffff;
+    font-weight: bold;
+  }
+  td {
+    background-color: #f9f9f9;
+  }
+  th, td {
+    padding: 10px;
+    text-align: center;
+  }
+  tr:nth-child(even) td {
+    background-color: #e0f2f1;
+  }
+
+  /* Input field and submit button styling */
+  input[type="text"], select {
+    width: 90%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin: 4px 0;
+  }
+  input[type="submit"] {
+    padding: 10px 20px;
+    color: white;
+    background-color: #43a047;
+    border: none;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  }
+  input[type="submit"]:hover {
+    background-color: #388e3c;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.24);
+  }
+</style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Add Stop</h1>
+    <form id="form1" name="form1" method="post" action="/ADSTPCOD">
+      <table>
+        <tr>
+          <th>ROUTE</th>
+          <td>
+            <select name="RUTSLT">
+              {% for i in val %}
+                <option value="{{ i[0] }}">{{ i[1] }} - {{ i[2] }}</option>
+              {% endfor %}
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <th>STOP</th>
+          <td><input type="text" name="STOP" /></td>
+        </tr>
+        <tr>
+          <th>LATITUDE</th>
+          <td><input type="text" name="LATTI" /></td>
+        </tr>
+        <tr>
+          <th>LONGITUDE</th>
+          <td><input type="text" name="LONGI" /></td>
+        </tr>
+        <tr>
+          <th colspan="2">
+            <input type="submit" name="Submit" value="SUBMIT" />
+          </th>
+        </tr>
+      </table>
+    </form>
+  </div>
+</body>
+</html>

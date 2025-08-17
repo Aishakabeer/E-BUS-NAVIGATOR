@@ -1,0 +1,145 @@
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>DRIVER VIEW FEEDBACK</title>
+</head>
+
+<body>
+<H1>VIEW FEEDBACK </H1>
+<form id="form1" name="form1" method="post" action="/VIEWFEEDBACK">
+  <p>&nbsp;</p>
+  <table border="1">
+    <tr>
+      <td>USERNAME</td>
+      <td>FEEDBACK</td>
+      <td>DATE</td>
+    </tr>
+     {% for i in val %}
+    <tr>
+      <td>{{i[4]}}.{{i[5]}}</td>
+      <td>{{i[2]}}&nbsp;</td>
+      <td>{{i[3]}}&nbsp;</td>
+    </tr>
+    {% endfor %}
+  </table>
+  <p>&nbsp;</p>
+</form>
+<p>&nbsp; </p>
+<br>
+<table><tr><td><a href="{{ url_for('driver_home') }}" class="button">GO BACK</a></td></tr></table>
+</body>
+</html> -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>DRIVER VIEW FEEDBACK</title>
+    <style type="text/css">
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e3f2fd;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #1976d2;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #bbdefb;
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #90caf9;
+            color: #333;
+            font-size: 1.1em;
+        }
+
+        tr:hover {
+            background-color: #e1f5fe;
+        }
+
+        .button {
+            background-color: #64b5f6;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.2s;
+            font-size: 1.1em;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .button:hover {
+            background-color: #42a5f5;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .button {
+                padding: 10px 20px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+  <h1>VIEW FEEDBACK</h1>
+  <div class="container">
+      <form id="form1" name="form1" method="post" action="/VIEWFEEDBACK">
+          <table>
+              <tr>
+                  <th>USER_ID</th>
+                  <th>FEEDBACK</th>
+                  <th>DATE</th>
+              </tr>
+              {% if val %}
+                  {% for i in val %}
+                  <tr>
+                      <td>{{ i[0] }}</td>  <!-- USER_ID column -->
+                      <td>{{ i[1] }}</td>  <!-- FEEDBACK column -->
+                      <td>{{ i[2] }}</td>  <!-- DATE column -->
+                  </tr>
+                  {% endfor %}
+              {% else %}
+                  <tr>
+                      <td colspan="3">No feedback available.</td>
+                  </tr>
+              {% endif %}
+          </table>
+      </form>
+      <a href="{{ url_for('driver_home') }}" class="button">GO BACK</a>
+  </div>
+</body>
+</html>

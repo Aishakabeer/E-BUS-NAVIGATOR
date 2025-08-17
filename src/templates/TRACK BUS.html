@@ -1,0 +1,165 @@
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>TRACK BUS</title>
+<style type="text/css">
+.style1 {color: #F0F0F0}
+</style>
+</head>
+
+<body>
+<H1>TRACK BUS </H1>
+<form id="form1" name="form1" method="post" action="/TRACKBUSnew">
+  <table width="283" border="1">
+  <tr>
+      <td width="47">RE.NO.</td>
+      <td width="116"><span class="style1">
+        <label>
+        <input type="text" name="textfield" />
+        </label>
+      </span></td>
+      <td width="98"><span class="style1">
+        <label>
+        <input type="submit" name="Submit" value="search" />
+        </label>
+      </span></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <table width="294" border="1">
+
+    <tr>
+      <td width="149"> BUS REGISTRATION</td>
+      <td width="149"> BUS NAME</td>
+      <td width="149">&nbsp;</td>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td>{{i[3]}}&nbsp;</td>
+      <td>{{i[2]}}&nbsp;</td>
+
+      <td><a href="https://www.google.com/maps?q={{i[9]}},{{i[11]}}"> TRACK</a></td>
+    </tr>
+      {% endfor %}
+
+  </table>
+  <p>&nbsp;</p>
+</form>
+<p>&nbsp; </p>
+<br>
+<table><tr><td><a href="{{ url_for('admin_home') }}">GO BACK</a>
+</td></tr></table>
+
+</body>
+</html> -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Track Bus</title>
+<style>
+  /* Background and main container */
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #89CFF0, #e0f7fa);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+  }
+
+  /* Card-style centered container */
+  .container {
+    width: 90%;
+    max-width: 900px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+
+  /* Title styling */
+  h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+
+  /* Table styling */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  table, th, td {
+    border: 1px solid #ddd;
+  }
+  th {
+    background-color: #00796b;
+    color: #ffffff;
+    font-weight: bold;
+  }
+  td {
+    background-color: #f9f9f9;
+  }
+  th, td {
+    padding: 10px;
+    text-align: center;
+  }
+  tr:nth-child(even) td {
+    background-color: #e0f2f1;
+  }
+
+  /* Button styling for the "GO BACK" link */
+  .back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    background-color: #43a047; /* Green color for GO BACK button */
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  .back-button:hover {
+    background-color: #388e3c;
+    transform: scale(1.05);
+  }
+</style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>TRACK BUS</h1>
+    <form id="form1" name="form1" method="post" action="/TRACKBUSnew">
+      
+      <p>&nbsp;</p>
+      <table>
+        <tr>
+          <td width="149">BUS REGISTRATION</td>
+          <td width="149">BUS NAME</td>
+          <td width="149">&nbsp;</td>
+        </tr>
+        {% for i in val %}
+        <tr>
+          <td>{{ i[3] }}&nbsp;</td>
+          <td>{{ i[2] }}&nbsp;</td>
+          <td><a href="https://www.google.com/maps?q={{ i[9] }},{{ i[11] }}" target="_blank">TRACK</a></td>
+        </tr>
+        {% endfor %}
+      </table>
+      <p>&nbsp;</p>
+    </form>
+    <a href="{{ url_for('admin_home') }}" class="back-button">GO BACK</a>
+  </div>
+</body>
+</html>
+

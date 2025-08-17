@@ -1,0 +1,183 @@
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>VIEW BUS TIME</title>
+</head>
+
+<body>
+<H1>VIEW BUS TIME</H1>
+<form id="form1" name="form1" method="post" action="/SERBUS">
+  <table width="348" border="1">
+    <tr>
+      <td width="76">REG.NO</td>
+      <td width="156"><label>
+        <input type="text" name="textfield" />
+      </label></td>
+      <td width="126"><label>
+        <input type="submit" name="Submit" value="SEARCH" />
+      </label></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <table width="200" border="1">
+    <tr>
+      <td>BUS NAME </td>
+      <td>STOP</td>
+      <td>TIME</td>
+    </tr>
+    {% for i in vals %}
+    <tr>
+      <td>{{i[2]}}&nbsp;</td>
+      <td>{{i[1]}}&nbsp;</td>
+      <td>{{i[0]}}&nbsp;</td>
+    </tr>
+      {% endfor %}
+  </table>
+  <p>&nbsp;</p>
+ 
+</form>
+<p>&nbsp; </p>
+<br>
+<table><tr><td><a href="{{ url_for('admin_home') }}">GO BACK</a>
+</td></tr></table>
+</body>
+</html> -->
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>View Bus Time</title>
+<style>
+  /* Background and main container */
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #89CFF0, #e0f7fa);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+  }
+
+  /* Card-style centered container */
+  .container {
+    width: 90%;
+    max-width: 600px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+
+  /* Title styling */
+  h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+
+  /* Form table styling */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  table, th, td {
+    border: 1px solid #ddd;
+  }
+  th {
+    background-color: #00796b;
+    color: #ffffff;
+    font-weight: bold;
+  }
+  td {
+    background-color: #f9f9f9;
+  }
+  th, td {
+    padding: 10px;
+    text-align: center;
+  }
+  tr:nth-child(even) td {
+    background-color: #e0f2f1;
+  }
+
+  /* Input and button styling */
+  input[type="text"] {
+    width: 90%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  input[type="submit"] {
+    padding: 10px 20px;
+    color: white;
+    background-color: #43a047; /* Green color for submit button */
+    border: none;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  }
+  input[type="submit"]:hover {
+    background-color: #388e3c;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.24);
+  }
+
+  /* Button styling for the "GO BACK" link */
+  .back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    background-color: #43a047; /* Green color for GO BACK button */
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  .back-button:hover {
+    background-color: #388e3c; 
+    transform: scale(1.05);
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>View Bus Time</h1>
+    <form id="form1" name="form1" method="post" action="/VIEWBUSTIME">
+      <table>
+        <tr>
+          <th>BUS NAME</th>
+          <th>STOP</th>
+          <th>TIME</th>
+        </tr>
+        {% if vals %}  <!-- Change 'val' to 'vals' -->
+        {% for i in vals %}  <!-- Change 'val' to 'vals' -->
+        <tr>
+            <td>{{ i[0] }}</td>  
+            <td>{{ i[1] }}</td>  
+            <td>{{ i[2] }}</td>  
+        </tr>
+        {% endfor %}
+    {% else %}
+        <tr>
+            <td colspan="3">No bus time available.</td>
+        </tr>
+    {% endif %}
+      </table>
+    </form>
+    
+    <br>
+    <a href="{{ url_for('admin_home') }}" class="back-button">GO BACK</a>
+  </div>
+</body>
+</html>

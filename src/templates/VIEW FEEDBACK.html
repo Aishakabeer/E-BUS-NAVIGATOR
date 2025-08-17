@@ -1,0 +1,148 @@
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>VIEW FEEDBACK</title>
+</head>
+
+<body>
+<H1>VIEW FEEDBACK </H1>
+<form id="form1" name="form1" method="post" action="/VIEWFEEDBACK">
+  <p>&nbsp;</p>
+  <table border="1">
+    <tr>
+      <td>USERNAME</td>
+      <td>FEEDBACK</td>
+      <td>DATE</td>
+    </tr>
+     {% for i in val %}
+    <tr>
+      <td>{{i[4]}}.{{i[5]}}</td>
+      <td>{{i[2]}}&nbsp;</td>
+      <td>{{i[3]}}&nbsp;</td>
+    </tr>
+    {% endfor %}
+  </table>
+  <p>&nbsp;</p>
+  <br>
+<table><tr><td><a href="{{ url_for('admin_home') }}" class="back-button">GO BACK</a></td></tr></table>
+</form>
+<p>&nbsp; </p>
+</body>
+</html> -->
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>View Feedback</title>
+<style>
+  /* Background and main container */
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #F0F8FF, #e0f7fa);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+  }
+
+  /* Card-style centered container */
+  .container {
+    width: 90%;
+    max-width: 800px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+
+  /* Title styling */
+  h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+
+  /* Table styling */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  table, th, td {
+    border: 1px solid #ddd;
+  }
+  th {
+    background-color: #00796b;
+    color: #ffffff;
+    font-weight: bold;
+  }
+  td {
+    background-color: #f9f9f9;
+  }
+  th, td {
+    padding: 10px;
+    text-align: center;
+  }
+  tr:nth-child(even) td {
+    background-color: #e0f2f1;
+  }
+
+  /* Button styling for the "GO BACK" link */
+  .back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    background-color: #43a047; /* Green color for GO BACK button */
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  .back-button:hover {
+    background-color: #388e3c;
+    transform: scale(1.05); 
+  }
+</style>
+</head>
+<body>
+  
+  <br>
+  <div class="container">
+      <form id="form1" name="form1" method="post" action="/VIEWFEEDBACK">
+        <h1>VIEW FEEDBACK</h1>
+          <table>
+              <tr>
+                  <th>USER_ID</th>
+                  <th>FEEDBACK</th>
+                  <th>DATE</th>
+              </tr>
+              {% if val %}
+                  {% for i in val %}
+                  <tr>
+                      <td>{{ i[0] }}</td>  <!-- USER_ID column -->
+                      <td>{{ i[1] }}</td>  <!-- FEEDBACK column -->
+                      <td>{{ i[2] }}</td>  <!-- DATE column -->
+                  </tr>
+                  {% endfor %}
+              {% else %}
+                  <tr>
+                      <td colspan="3">No feedback available.</td>
+                  </tr>
+              {% endif %}
+          </table>
+      </form>
+      <a href="{{ url_for('admin_home') }}" class="back-button">GO BACK</a>
+  </div>
+</body>
+</html>

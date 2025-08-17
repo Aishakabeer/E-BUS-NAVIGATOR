@@ -1,0 +1,135 @@
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>USER HOME</title>
+</head>
+
+<body style="margin:15%">
+<div align="center"> <h1>USER HOME</h1>
+  <table width="200" border="0">
+    
+    <tr>
+      <td><a href="/BUSINFO">BUS INFORMATION</a></td>
+    </tr>
+    <tr>
+      <td><a href="/UPDATETRAVELSS">UPDATE TRAVELS</a></td>
+    </tr>
+    <tr>
+      <td><a href="/HISTORY">HISTORY </a></td>
+    </tr>
+    <tr>
+      <td><a href="/VIEWBUSTIME">VIEW BUS TIME</a></td>
+    </tr>
+    <tr>
+      <td><a href="/TRACK BUS">TRACK BUS</a></td>
+    </tr>
+    <tr>
+      <td><a href="/FEEDBACK">FEEDBACK</a></td>
+    </tr>
+    <tr>
+      <td><a href="/">LOGOUT</a></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html> -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USER HOME</title>
+    <style>
+        /* General page styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            display: flex;
+        }
+
+        /* Sidebar styling */
+        .sidebar {
+            width: 250px;
+            background-color: #6ba5f7;
+            padding: 20px;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            height: 100vh;
+            color: white;
+        }
+
+        /* Sidebar links styling */
+        .sidebar a {
+            display: block;
+            color: white;
+            padding: 15px;
+            text-decoration: none;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #34495e;
+        }
+
+        /* Main content area styling */
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        /* Container for the user home */
+        .user-home {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin: 20px;
+            text-align: center;
+        }
+
+        /* Heading styling */
+        h1 {
+            color: #C0392B;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        /* Responsive styling */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+            }
+
+            .user-home {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>User Menu</h2>
+        <a href="/BUSINFO">Bus Information</a>
+        <a href="/UPDATETRAVELS">Update Travel History</a>
+        <a href="/HISTORY">History</a>
+        <a href="/VIEWBUSTIMEUSER">View Bus Time</a>
+        <a href="/TRACK BUSUSER">Track Bus</a>
+        <a href="/FEEDBACK">Feedback</a>
+        <a href="/">Logout</a>
+    </div>
+
+    <div class="main-content">
+        <div class="user-home">
+            <h1>Welcome to User Home</h1>
+            <center>
+                <!-- <img src="{{ url_for('static', filename='user.jpg') }}" alt="User Image" style="max-width: 100%; height: auto;"> -->
+                <p>Explore the available options in the sidebar to manage your bus travels.</p>
+            </center>
+        </div>
+    </div>
+</body>
+</html>

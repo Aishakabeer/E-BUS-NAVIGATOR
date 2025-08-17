@@ -1,0 +1,141 @@
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>EDIT STOP</title>
+</head>
+
+<body>
+<p>EDIT ROUTE</p>
+<form id="form1" name="form1" method="post" action="/UPDSTOP">
+  <table width="268" border="1">
+     <tr>
+      <th scope="row">STOP</th>
+      <td><input type="text" name="tos" value="{{val[2]}}" /></td>
+    </tr>
+    <tr>
+
+    <tr>
+      <th scope="row">LATTITIDE</th>
+      <td><input type="text" name="LAT" value="{{val[3]}}" /></td>
+    </tr>
+    <tr>
+      <th scope="row">LONGITUDE</th>
+      <td><input type="text" name="LOG" value="{{val[4]}}" /></td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row"><label>
+        <input type="submit" name="Submit" value="UPDATE  STOP NAME" />
+      </label></th>
+    </tr>
+  </table>
+</form>
+<p>&nbsp;</p>
+</body>
+</html> -->
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>EDIT STOP</title>
+<style>
+  /* Overall page styling */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  /* Center container for the form */
+  .form-container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px 40px;
+    width: 320px;
+    text-align: center;
+  }
+
+  /* Heading styling */
+  h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+
+  /* Table styling */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th, td {
+    padding: 10px;
+    text-align: left;
+  }
+
+  th {
+    color: #555;
+    font-weight: normal;
+  }
+
+  /* Input styling */
+  input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+
+  /* Button styling */
+  input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+</style>
+</head>
+
+<body>
+  <div class="form-container">
+    <h2>EDIT STOP</h2>
+    <form id="form1" name="form1" method="post" action="/UPDSTOP">
+      <table>
+        <tr>
+          <th>STOP</th>
+          <td><input type="text" name="tos" value="{{val[2]}}" /></td>
+        </tr>
+        <tr>
+          <th>LATTITUDE</th>
+          <td><input type="text" name="LAT" value="{{val[3]}}" /></td>
+        </tr>
+        <tr>
+          <th>LONGITUDE</th>
+          <td><input type="text" name="LOG" value="{{val[4]}}" /></td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <input type="submit" name="Submit" value="UPDATE STOP NAME" />
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+</body>
+</html>

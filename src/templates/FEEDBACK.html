@@ -1,0 +1,177 @@
+<!-- <html>
+<head>
+  <title>FEEDBACK FORM</title>
+</head>
+<body style="margin:15%">
+    <form id="form1" name="form1" method="post" action="/SUBMITFEEDBACK">
+      <div align="center">
+        <table width="374" border="0">
+          <tbody>
+            <tr>
+              <th width="165" scope="row">USERID: </th>
+              <td width="251"><label>
+                <input type="text" name="userid">
+              </label></td>
+            </tr>
+            <tr>
+              <th scope="row">FEEDBACK:</th>
+              <td><label>
+                <textarea name="feedback" rows="4" cols="30"></textarea>
+              </label></td>
+            </tr>
+            <tr>
+              <th scope="row">DATE:</th>
+              <td><label>
+                <input type="date" name="date">
+              </label></td>
+            </tr>
+            <tr>
+              <th colspan="2" scope="row"><label>
+                <input type="submit" name="SUBMIT" value="SUBMIT">
+              </label></th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </form>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FEEDBACK FORM</title>
+    <style type="text/css">
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e3f2fd; /* Very light blue background */
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #1976d2; /* Deep pastel blue */
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 500px; /* Maximum width for the form */
+            margin: 0 auto; /* Center the container */
+            background-color: #ffffff; /* White background for the form */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+            padding: 20px; /* Padding inside the container */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0; /* Spacing above and below the table */
+        }
+
+        th {
+            text-align: left;
+            padding: 12px;
+            color: #333;
+        }
+
+        td {
+            padding: 12px;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #bbdefb; /* Light pastel blue border */
+            border-radius: 5px; /* Rounded corners */
+            box-sizing: border-box; /* Include padding in width */
+        }
+
+        .button {
+            background-color: #64b5f6; /* Pastel blue */
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.2s;
+            font-size: 1.1em;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .button:hover {
+            background-color: #42a5f5; /* Slightly darker pastel blue on hover */
+            transform: scale(1.05); /* Slightly enlarge on hover */
+        }
+
+        input[type="submit"] {
+            background-color: #64b5f6; /* Pastel blue */
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.2s;
+            font-size: 1.1em;
+            cursor: pointer; /* Change cursor to pointer */
+            margin-top: 20px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #42a5f5; /* Slightly darker pastel blue on hover */
+            transform: scale(1.05); /* Slightly enlarge on hover */
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>FEEDBACK FORM</h1>
+    <div class="container">
+        <form id="form1" name="form1" method="post" action="/SUBMITFEEDBACK">
+            <table border="0">
+                <tbody>
+                    <tr>
+                        <th scope="row">USERID:</th>
+                        <td><label>
+                            <input type="text" name="userid" required>
+                        </label></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">FEEDBACK:</th>
+                        <td><label>
+                            <textarea name="feedback" rows="4" required></textarea>
+                        </label></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">DATE:</th>
+                        <td><label>
+                            <input type="date" name="date" required>
+                        </label></td>
+                    </tr>
+                    <tr>
+                        <th colspan="2" scope="row"><label>
+                            <input type="submit" name="SUBMIT" value="SUBMIT">
+                        </label></th>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+        
+    </div>
+    <a href="{{ url_for('user_home') }}" class="button">GO BACK</a>
+</body>
+</html>

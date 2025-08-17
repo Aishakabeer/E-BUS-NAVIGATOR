@@ -1,0 +1,168 @@
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<p>UPDATE TRAVELS </p>
+<form id="form1" name="form1" method="post" action="/UPDATETRAVELS">
+  <table width="268" border="1">
+    <tr>
+      <th scope="row">ROUTE</th>
+      <td><label>
+        <input type="text" name="ROUTE" />
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">STOP</th>
+      <td><label>
+        <input type="text" name="STOP" />
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">DATE</th>
+      <td><label>
+        <input type="text" name="DATE" />
+      </label></td>
+    </tr> 
+    <tr>
+      <th scope="row">BUS ID</th>
+      <td><label>
+        <input type="text" name="busid" />
+      </label></td>
+    </tr> 
+    <tr>
+      <th colspan="2" scope="row"><label>
+        <input type="submit" name="Submit" value="SUBMIT" />
+      </label></th>
+    </tr>
+  </table>
+</form>
+<p>&nbsp;</p>
+<a href="{{ url_for('user_home') }}" class="button">GO BACK</a>
+</body>
+</html> -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>UPDATE TRAVELS</title>
+    <style type="text/css">
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e3f2fd; /* Very light blue background */
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #1976d2; /* Deep pastel blue */
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 600px; /* Maximum width for the form */
+            margin: 0 auto; /* Center the container */
+            background-color: #ffffff; /* White background for the form */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+            padding: 20px; /* Padding inside the container */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0; /* Spacing above and below the table */
+        }
+
+        th, td {
+            border: 1px solid #bbdefb; /* Light pastel blue border */
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #90caf9; /* Pastel light blue header */
+            color: #333; /* Dark text for contrast */
+            font-size: 1.1em;
+        }
+
+        tr:hover {
+            background-color: #e1f5fe; /* Very light pastel blue on hover */
+        }
+
+        .button {
+            background-color: #64b5f6; /* Pastel blue */
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.2s;
+            font-size: 1.1em;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .button:hover {
+            background-color: #42a5f5; /* Slightly darker pastel blue on hover */
+            transform: scale(1.05); /* Slightly enlarge on hover */
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .button {
+                padding: 10px 20px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>UPDATE TRAVEL HISTORY</h1>
+    <div class="container">
+        <form id="form1" name="form1" method="post" action="/UPDATETRAVELS">
+            <table>
+                <tr>
+                    <th>ROUTE</th>
+                    <td><input type="text" name="ROUTE" /></td>
+                </tr>
+                <tr>
+                    <th>STOP</th>
+                    <td><input type="text" name="STOP" /></td>
+                </tr>
+                <tr>
+                    <th>DATE</th>
+                    <td><input type="text" name="DATE" /></td>
+                </tr>
+                <tr>
+                    <th>BUS ID</th>
+                    <td><input type="text" name="busid" /></td>
+                </tr>
+                <tr>
+                  <th>PHONE_NO</th>
+                  <td><input type="text" name="phnno" /></td>
+              </tr>
+                <tr>
+                    <td colspan="2" style="text-align:center;">
+                        <input type="submit" name="Submit" value="SUBMIT" class="button" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <a href="{{ url_for('user_home') }}" class="button">GO BACK</a>
+    </div>
+</body>
+</html>
+

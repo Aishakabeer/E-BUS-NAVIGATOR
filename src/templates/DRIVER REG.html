@@ -1,0 +1,245 @@
+<!-- <html>
+  <head>
+    <title>DRIVER REGISTRATION</title>
+  </head><body style="margin:15%">
+    <form id="form1" name="form1" method="post" action="/DRIVERREG">
+      <div align="center">
+        <table width="374" border="0">
+          <tbody>    
+            <div align="center"> <h1>DRIVER REGISTRATION</h1></div>
+            <tr>
+                <th width="165" scope="row">DRIVER NAME : </th>
+              <td width="251"><label>
+                <input type="text" name="name">
+                </label></td>
+            </tr>
+              <tr>
+                <th scope="row">PHONE :</th></th>
+              <td><label>
+                <input type="text" name="contact">
+                </label></td>
+            </tr>
+            <tr>
+                <th width="165" scope="row">BUS NAME : </th>
+              <td width="251"><label>
+                <input type="text" name="busname">
+                </label></td>
+            </tr>
+              <tr>
+                <th scope="row">ADDRESS :</th>:</th>
+              <td><label>
+                <input type="TEXT" name="address">
+                </label></td>
+            </tr>
+            <tr>
+              <th width="165" scope="row">EMAIL : </th>
+            <td width="251"><label>
+              <input type="text" name="email">
+              </label></td>
+          </tr>
+            <tr>
+              <th scope="row">USERNAME :</th>:</th>
+            <td><label>
+              <input type="TEXT" name="username">
+              </label></td>
+          </tr>
+            <tr>
+                <th width="165" scope="row">PASSWORD : </th>
+              <td width="251"><label>
+                <input type="password" name="password">
+                </label></td>
+            </tr>
+          <tr>
+            <th colspan="2" scope="row"><label>
+              <input type="submit" name="LOGIN" value="LOGIN">
+            </label></th>
+          </tr>
+        </tbody></table>
+      </div>
+    </form>
+    </body></html> -->
+
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DRIVER REGISTRATION</title>
+  <style>
+    /* General page styling */
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url("{{ url_for('static', filename='image1.jpg') }}"); /* Add your background image */
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    /* Center container for registration form */
+    .registration-container {
+      background-color: rgba(255, 255, 255, 0.8); /* Glass effect */
+      border-radius: 10px;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+      padding: 30px;
+      width: 320px; /* Width of the container */
+      text-align: center;
+      backdrop-filter: blur(10px);
+      animation: fadeIn 1s ease-in;
+    }
+
+    /* Heading styling */
+    h1 {
+      color: #C0392B;
+      font-size: 24px; /* Font size for heading */
+      margin-bottom: 15px; /* Margin below heading */
+    }
+
+    /* Table styling */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 10px 0; /* Padding for table cells */
+      text-align: left;
+    }
+
+    th {
+      color: #333;
+      font-weight: normal;
+    }
+
+    /* Input styling */
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="tel"] {
+      width: 90%;
+      padding: 8px; /* Padding for input fields */
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px; /* Font size for input fields */
+      margin-top: 5px; /* Margin above input fields */
+    }
+
+    /* Submit button styling */
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px; /* Padding for submit button */
+      background-color: #4CAF50; /* Background color for button */
+      color: white; /* Text color for button */
+      border: none;
+      border-radius: 4px;
+      font-size: 14px; /* Font size for button */
+      cursor: pointer;
+      transition: background-color 0.3s ease; /* Transition effect on hover */
+    }
+
+    input[type="submit"]:hover {
+      background-color: #388E3C; /* Background color on hover */
+    }
+
+    /* Animation for the overlay */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Error message styling */
+    .error-message {
+      color: red;
+      font-size: 12px;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="registration-container">
+    <h1>DRIVER REGISTRATION</h1>
+    <form id="form1" name="form1" method="post" action="/DRIVERREG" onsubmit="return validateForm()">
+      <table>
+        <tr>
+          <th>DRIVER NAME:</th>
+          <td><input type="text" name="name" required placeholder="Enter driver's name"></td>
+        </tr>
+        <tr>
+          <th>PHONE:</th>
+          <td><input type="tel" name="contact" required placeholder="Enter phone number" pattern="[0-9]{10}" title="Please enter a valid 10-digit phone number"></td>
+        </tr>
+        <tr>
+          <th>BUS NAME:</th>
+          <td><input type="text" name="busname" required placeholder="Enter bus name"></td>
+        </tr>
+        <tr>
+          <th>ADDRESS:</th>
+          <td><input type="text" name="address" required placeholder="Enter address"></td>
+        </tr>
+        <tr>
+          <th>EMAIL:</th>
+          <td><input type="email" name="email" required placeholder="Enter email"></td>
+        </tr>
+        <tr>
+          <th>USERNAME:</th>
+          <td><input type="text" name="username" required placeholder="Enter username"></td>
+        </tr>
+        <tr>
+          <th>PASSWORD:</th>
+          <td><input type="password" name="password" required placeholder="Enter password" minlength="8" title="Password must be at least 8 characters long"></td>
+        </tr>
+        <tr>
+          <td colspan="2" style="text-align: center;">
+            <input type="submit" name="REGISTER" value="REGISTER">
+          </td>
+        </tr>
+      </table>
+    </form>
+    <div class="error-message" id="error-message" style="display:none;"></div>
+  </div>
+
+  <script>
+    function validateForm() {
+      const phone = document.forms["form1"]["contact"].value;
+      const email = document.forms["form1"]["email"].value;
+      const password = document.forms["form1"]["password"].value;
+      const errorMessage = document.getElementById("error-message");
+
+      // Clear previous error message
+      errorMessage.style.display = "none";
+      errorMessage.innerHTML = "";
+
+      // Validate phone number
+      const phonePattern = /^[0-9]{10}$/;
+      if (!phonePattern.test(phone)) {
+        errorMessage.innerHTML += "Phone number must be 10 digits long.<br>";
+        errorMessage.style.display = "block";
+        return false;
+      }
+
+      // Validate email
+      const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!emailPattern.test(email)) {
+        errorMessage.innerHTML += "Please enter a valid email address.<br>";
+        errorMessage.style.display = "block";
+        return false;
+      }
+
+      // Validate password strength (at least one digit and one uppercase letter)
+      const passwordPattern = /^(?=.*[0-9])(?=.*[A-Z]).{8,}$/;
+      if (!passwordPattern.test(password)) {
+        errorMessage.innerHTML += "Password must be at least 8 characters long and contain at least one digit and one uppercase letter.<br>";
+        errorMessage.style.display = "block";
+        return false;
+      }
+
+      return true; // All validations passed
+    }
+  </script>
+</body>
+</html>

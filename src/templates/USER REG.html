@@ -1,0 +1,289 @@
+<!-- <html>
+<head>
+  <title>USER REGISTRATION</title>
+</head>
+<body style="margin:15%">
+  <form id="form1" name="form1" method="POST" action="/USREG">
+    <div align="center">
+      <table width="374" border="0">
+        <tbody>    
+          <div align="center"> <h1>USER REGISTRATION</h1></div>
+
+          <tr>
+            <th width="165" scope="row">FIRST NAME :</th>
+            <td width="251">
+              <input type="text" name="fname" required>
+            </td>
+          </tr>
+
+          <tr>
+            <th width="165" scope="row">LAST NAME :</th>
+            <td width="251">
+              <input type="text" name="lname" required>
+            </td>
+          </tr>
+
+          <tr>
+            <th width="165" scope="row">PHONE :</th>
+            <td>
+              <input type="tel" name="contact" required>
+            </td>
+          </tr>
+
+          <tr>
+            <th width="165" scope="row">GENDER :</th>
+            <td width="251">
+              <input type="text" name="gender" required>
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">PLACE :</th>
+            <td>
+              <input type="text" name="place" required>
+            </td>
+          </tr>
+
+          <tr>
+            <th width="165" scope="row">POST :</th>
+            <td width="251">
+              <input type="text" name="post" required>
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">PIN :</th>
+            <td>
+              <input type="text" name="pin" required>
+            </td>
+          </tr>
+
+          <tr>
+            <th width="165" scope="row">EMAIL :</th>
+            <td width="251">
+              <input type="email" name="email" required>
+            </td>
+          </tr>
+
+          <tr>
+            <th width="165" scope="row">USERNAME :</th>
+            <td width="251">
+              <input type="text" name="username" required>
+            </td>
+          </tr>
+
+          <tr>
+            <th width="165" scope="row">PASSWORD :</th>
+            <td width="251">
+              <input type="password" name="password" required>
+            </td>
+          </tr>
+
+          <tr>
+            <th colspan="2" scope="row">
+              <input type="submit" name="REGISTER" value="REGISTER">
+            </th>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </form>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>USER REGISTRATION</title>
+  <style>
+    /* General page styling */
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url("{{ url_for('static', filename='image1.jpg') }}"); /* Add your background image */
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    /* Center container for registration form */
+    .registration-container {
+      background-color: rgba(255, 255, 255, 0.8); /* Glass effect */
+      border-radius: 10px;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+      padding: 30px; /* Reduced padding */
+      width: 320px; /* Reduced width */
+      text-align: center;
+      backdrop-filter: blur(10px);
+      animation: fadeIn 1s ease-in;
+    }
+
+    /* Heading styling */
+    h1 {
+      color: #C0392B;
+      font-size: 24px; /* Reduced font size */
+      margin-bottom: 15px; /* Reduced margin */
+    }
+
+    /* Table styling */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 10px 0; /* Reduced padding */
+      text-align: left;
+    }
+
+    th {
+      color: #333;
+      font-weight: normal;
+    }
+
+    /* Input styling */
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"],
+    input[type="password"] {
+      width: 90%;
+      padding: 6px; /* Reduced padding */
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px; /* Reduced font size */
+      margin-top: 5px;
+    }
+
+    /* Submit button styling */
+    input[type="submit"] {
+      width: 100%;
+      padding: 8px; /* Reduced padding */
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px; /* Reduced font size */
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #388E3C;
+    }
+
+    /* Animation for the overlay */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Error message styling */
+    .error-message {
+      color: red;
+      font-size: 12px;
+      margin-top: 5px;
+      display: none; /* Initially hidden */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="registration-container">
+    <h1>USER REGISTRATION</h1>
+    <form id="form1" name="form1" method="POST" action="/USREG" onsubmit="return validateForm()">
+      <table>
+        <tr>
+          <th>FIRST NAME:</th>
+          <td><input type="text" name="fname" required placeholder="Enter your first name"></td>
+        </tr>
+        <tr>
+          <th>LAST NAME:</th>
+          <td><input type="text" name="lname" required placeholder="Enter your last name"></td>
+        </tr>
+        <tr>
+          <th>PHONE:</th>
+          <td><input type="tel" name="contact" required placeholder="Enter your phone number" pattern="[0-9]{10}" title="Please enter a valid 10-digit phone number."></td>
+        </tr>
+        <tr>
+          <th>GENDER:</th>
+          <td><input type="text" name="gender" required placeholder="Enter your gender"></td>
+        </tr>
+        <tr>
+          <th>PLACE:</th>
+          <td><input type="text" name="place" required placeholder="Enter your place"></td>
+        </tr>
+        <tr>
+          <th>POST:</th>
+          <td><input type="text" name="post" required placeholder="Enter your post"></td>
+        </tr>
+        <tr>
+          <th>PIN:</th>
+          <td><input type="text" name="pin" required placeholder="Enter your pin" pattern="[0-9]{6}" title="Please enter a valid 6-digit PIN."></td>
+        </tr>
+        <tr>
+          <th>EMAIL:</th>
+          <td><input type="email" name="email" required placeholder="Enter your email"></td>
+        </tr>
+        <tr>
+          <th>USERNAME:</th>
+          <td><input type="text" name="username" required placeholder="Enter your username"></td>
+        </tr>
+        <tr>
+          <th>PASSWORD:</th>
+          <td><input type="password" name="password" required placeholder="Enter your password" minlength="8" title="Password must be at least 8 characters long."></td>
+        </tr>
+        <tr>
+          <td colspan="2" style="text-align: center;">
+            <input type="submit" name="REGISTER" value="REGISTER">
+          </td>
+        </tr>
+      </table>
+      <div class="error-message" id="error-message"></div>
+    </form>
+  </div>
+
+  <script>
+    function validateForm() {
+      const phone = document.forms["form1"]["contact"].value;
+      const pin = document.forms["form1"]["pin"].value;
+      const password = document.forms["form1"]["password"].value;
+      const errorMessage = document.getElementById("error-message");
+
+      // Clear previous error message
+      errorMessage.innerHTML = "";
+      errorMessage.style.display = "none";
+
+      // Validate phone number
+      const phonePattern = /^[0-9]{10}$/;
+      if (!phonePattern.test(phone)) {
+        errorMessage.innerHTML += "Phone number must be a 10-digit number.<br>";
+        errorMessage.style.display = "block";
+        return false;
+      }
+
+      // Validate PIN
+      const pinPattern = /^[0-9]{6}$/;
+      if (!pinPattern.test(pin)) {
+        errorMessage.innerHTML += "PIN must be a 6-digit number.<br>";
+        errorMessage.style.display = "block";
+        return false;
+      }
+
+      // Validate password strength (at least one digit and one uppercase letter)
+      const passwordPattern = /^(?=.*[0-9])(?=.*[A-Z]).{8,}$/;
+      if (!passwordPattern.test(password)) {
+        errorMessage.innerHTML += "Password must be at least 8 characters long and contain at least one digit and one uppercase letter.<br>";
+        errorMessage.style.display = "block";
+        return false;
+      }
+
+      return true; // All validations passed
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>BUS APPROVAL</title>
+</head>
+
+<body><center>
+<table width="345" border="1">
+  <tr>
+    <td>REG.NO</td>
+    <td>BUS NAME </td>
+    <td>PH.NO</td>
+    <td>DECISSION</td>
+  </tr>
+  {% for i in a %}
+  <tr>
+    <td>{{i[3]}}</td>
+    <td>{{i[2]}}</td>
+    <td>{{i[4]}}</td>
+    <td><p><a href="BUSAPPRU?lid={{i[1]}}">ACCEPT</a></p>
+    <p><a href="BUSREGT?lid={{i[1]}}">REJECT</a></p></td>
+  </tr>
+    {% endfor %}
+</table>
+</center>
+<br>
+<table><tr><td><a href="{{ url_for('admin_home') }}">GO BACK</a>
+</td></tr></table>
+</body>
+</html> -->
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>BUS APPROVAL</title>
+<style>
+  /* Background and body styling */
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #89CFF0, #e0f7fa);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+  }
+
+  /* Centered container with card style */
+  .container {
+    width: 90%;
+    max-width: 600px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+
+  /* Title styling */
+  h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+
+  /* Table styling */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  table, th, td {
+    border: 1px solid #ddd;
+  }
+  th {
+    background-color: #00796b;
+    color: #ffffff;
+    font-weight: bold;
+  }
+  td {
+    background-color: #f9f9f9;
+  }
+  th, td {
+    padding: 12px;
+    text-align: center;
+  }
+  tr:nth-child(even) td {
+    background-color: #e0f2f1;
+  }
+
+  /* Button styling with animation */
+  a.button {
+    display: inline-block;
+    padding: 8px 16px;
+    color: white;
+    background-color: #43a047;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  }
+  a.button:hover {
+    background-color: #388e3c;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.24);
+  }
+  .button.reject {
+    background-color: #e53935;
+  }
+  .button.reject:hover {
+    background-color: #c62828;
+  }
+
+  /* Go back link styling */
+  .back-link {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .back-link a.button {
+    background-color: #00695c;
+  }
+  .back-link a.button:hover {
+    background-color: #004d40;
+  }
+</style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Bus Approval</h1>
+    <table>
+      <tr>
+        <th>REG.NO</th>
+        <th>BUS NAME</th>
+        <th>PH.NO</th>
+        <th>DECISION</th>
+      </tr>
+      {% for i in a %}
+      <tr>
+        <td>{{ i[3] }}</td>
+        <td>{{ i[2] }}</td>
+        <td>{{ i[4] }}</td>
+        <td>
+          <a href="BUSAPPRU?lid={{ i[1] }}" class="button">ACCEPT</a>
+          <a href="BUSREGT?lid={{ i[1] }}" class="button reject">REJECT</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+    <div class="back-link">
+      <a href="{{ url_for('admin_home') }}" class="button">GO BACK</a>
+    </div>
+  </div>
+</body>
+</html>
